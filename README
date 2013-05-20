@@ -1,0 +1,25 @@
+Sudoku-Solver
+5/20/13
+
+This is a simple brute-force Python Sudoku solver. I would like to
+improve it so that the code is more pythonic and also much more
+efficient. Right now it is not at all elegant although it does
+get the job done. I would also like to redo this using test-driven
+development since the approach I took when writing this seems
+quite error-prone.
+
+The solver expects input grid in the file sudoku.txt in the current
+working directory. An example input would be the following:
+
+003020700
+900305001
+001906400
+008102900
+700000008
+006704200
+002609500
+800203009
+005010300
+
+The solver assumes that the input grid does in fact have a
+solution.
