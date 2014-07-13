@@ -21,7 +21,15 @@ class Grid:
                     return False
                 seen.append(self.grid[i][j])
         # Check each sub-grid
-        pass
+        for i1 in range(3):
+		for j1 in range(3):
+			# Check each of three subgrids, indexed by i1,j1.
+			seen = []
+			for i2 in range(3):
+				for j2 in range(3):
+					if self.grid[i1*3+i2][j1*3+j2] != 0 and self.grid[i1*3+i][j1*3+j2] in seen:
+						return False
+					seen.append(self.grid[i1*3+i2][j1*3+j2])
         return True
 
     def isSolved(self):
