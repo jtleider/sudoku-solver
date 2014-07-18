@@ -2,6 +2,17 @@ class Grid:
     def __init__(self, grid):
         self.grid = grid
 
+    def __str__(self):
+	output = ""
+	for i in range(9):
+		if i % 3 == 0: output = output + "-"*25 + "\n"
+		for j in range(9):
+			if j % 3 == 0: output = output + "| "
+			output = output + str(self.grid[i][j]) + " "
+		output = output + "|\n"
+	output = output + "-"*25 + "\n"
+	return output
+
     def isValid(self):
         """Is this a valid Sudoku grid? The grid need not be
         complete, but there should be no problems like a
@@ -27,14 +38,20 @@ class Grid:
 			seen = []
 			for i2 in range(3):
 				for j2 in range(3):
-					if self.grid[i1*3+i2][j1*3+j2] != 0 and self.grid[i1*3+i][j1*3+j2] in seen:
+					if self.grid[i1*3+i2][j1*3+j2] != 0 and self.grid[i1*3+i2][j1*3+j2] in seen:
 						return False
 					seen.append(self.grid[i1*3+i2][j1*3+j2])
         return True
 
     def isSolved(self):
         """Is this grid solved?"""
-        pass
+	if not self.isValid():
+		return False
+	for i in range(9):
+		for j in range(9):
+			if self.grid[i][j] == 0:
+				return False
+        return True
 
     def possibleValues(self, m, n):
         """Return list of possible values for cell in
