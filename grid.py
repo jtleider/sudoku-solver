@@ -70,7 +70,7 @@ class Grid:
 			used[self.grid[i][j]] = True
         return [i for i in range(1, 9+1) if not used[i]]
 
-    def setCell(self, m, n):
+    def setCell(self, m, n, value):
         """Set the value of the cell in row m, column n."""
         pass
 
