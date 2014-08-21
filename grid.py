@@ -78,6 +78,10 @@ class Grid:
 	"""Get the value of the cell in row m, column n."""
 	return self.grid[m][n]
 
+    def getGrid(self):
+	"""Get 2-dimensional array representing grid."""
+	return self.grid
+
     def findEmpty(self):
         """Return the row and column of an empty cell in the
         grid, None if the grid is complete."""
