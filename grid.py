@@ -57,7 +57,18 @@ class Grid:
         """Return list of possible values for cell in
         row m, column n in grid, where m, n are between
         0 and 8."""
-        pass
+	used = [False for i in range(9+1)]
+	for j in range(9):
+		if j == n: continue
+		used[self.grid[m][j]] = True
+	for i in range(9):
+		if i == m: continue
+		used[self.grid[i][n]] = True
+	for i in range(m - (m % 3), m - (m % 3) + 3):
+		for j in range(n - (n % 3), n - (n % 3) + 3):
+			if i == m and j == n: continue
+			used[self.grid[i][j]] = True
+        return [i for i in range(1, 9+1) if not used[i]]
 
     def setCell(self, m, n):
         """Set the value of the cell in row m, column n."""
