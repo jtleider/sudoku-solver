@@ -72,7 +72,7 @@ class Grid:
 
     def setCell(self, m, n, value):
         """Set the value of the cell in row m, column n."""
-        pass
+	self.grid[m][n] = value
 
     def findEmpty(self):
         """Return the row and column of an empty cell in the
