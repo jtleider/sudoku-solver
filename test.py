@@ -216,7 +216,7 @@ class GridTest(unittest.TestCase):
 	self.assertEqual(grid.getCell(7, 6), 5)
 	self.assertEqual(grid.getCell(2, 1), 8)
 	self.assertEqual(grid.getCell(0, 2), 2)
-	self.assertEqual(grid.grid, [[1, 7, 2, 5, 4, 9, 6, 8, 3]]+
+	self.assertEqual(grid.getGrid(), [[1, 7, 2, 5, 4, 9, 6, 8, 3]]+
 			[[6, 4, 5, 8, 7, 3, 2, 1, 9]] +
 			[[3, 8, 9, 2, 6, 1, 7, 4, 5]] +
 			[[4, 9, 6, 3, 2, 7, 8, 5, 1]] +
