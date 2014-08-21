@@ -77,4 +77,8 @@ class Grid:
     def findEmpty(self):
         """Return the row and column of an empty cell in the
         grid, None if the grid is complete."""
-        pass
+	for i in range(9):
+		for j in range(9):
+			if self.grid[i][j] == 0: return [i, j]
+        return None
+
