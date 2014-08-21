@@ -90,9 +90,29 @@ class Grid:
 			if self.grid[i][j] == 0: return [i, j]
         return None
 
+    def recursiveSolve(self):
+	"""Recursively solve Sudoku grid. Return True if grid solved, False otherwise."""
+	if not self.isValid(): return False
+	emptyCell = self.findEmpty()
+	if emptyCell == None: return self.isSolved()
+	for p in self.possibleValues(emptyCell[0], emptyCell[1]):
+		self.grid[emptyCell[0]][emptyCell[1]] = p
+		if self.recursiveSolve():
+			return True
+	# We tried everything, nothing worked.
+	self.grid[emptyCell[0]][emptyCell[1]] = 0
+	return False
+
     def solve(self):
 	"""Solve the Sudoku grid. Throw GridException if this is not possible."""
-	pass
+	if not self.isValid():
+		raise GridException('This is not a valid Sudoku grid!')
+		return
+	if self.isSolved():
+		return
+	r = self.recursiveSolve()
+	if not r:
+		raise GridException('Unable to solve Sudoku grid!')
 
 class GridException(Exception):
 	def __init__(self, value):
