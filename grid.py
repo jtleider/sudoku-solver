@@ -1,4 +1,5 @@
 class Grid:
+    """Class for representing a Sudoku grid."""
     def __init__(self, grid):
         self.grid = grid
 
@@ -115,8 +116,9 @@ class Grid:
 		raise GridException('Unable to solve Sudoku grid!')
 
 class GridException(Exception):
-	def __init__(self, value):
-		self.value = value
-	def __str__(self):
-		return repr(self.value)
+    "Class representing Grid exception."""
+    def __init__(self, value):
+	self.value = value
+    def __str__(self):
+	return repr(self.value)
 
