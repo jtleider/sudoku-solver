@@ -76,7 +76,7 @@ class Grid:
 
     def getCell(self, m, n):
 	"""Get the value of the cell in row m, column n."""
-	pass
+	return self.grid[m][n]
 
     def findEmpty(self):
         """Return the row and column of an empty cell in the
