@@ -74,6 +74,10 @@ class Grid:
         """Set the value of the cell in row m, column n."""
 	self.grid[m][n] = value
 
+    def getCell(self, m, n):
+	"""Get the value of the cell in row m, column n."""
+	pass
+
     def findEmpty(self):
         """Return the row and column of an empty cell in the
         grid, None if the grid is complete."""
@@ -81,4 +85,14 @@ class Grid:
 		for j in range(9):
 			if self.grid[i][j] == 0: return [i, j]
         return None
+
+    def solve(self):
+	"""Solve the Sudoku grid. Throw GridException if this is not possible."""
+	pass
+
+class GridException(Exception):
+	def __init__(self, value):
+		self.value = value
+	def __str__(self):
+		return repr(self.value)
 
